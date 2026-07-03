@@ -1,0 +1,13 @@
+# ESP-IDF build outputs
+build/
+sdkconfig
+sdkconfig.old
+managed_components/
+dependencies.lock
+
+# CLion
+.idea/
+cmake-build-*/
+
+# macOS
+.DS_Store

@@ -1,0 +1,37 @@
+name: build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - esp32
+          - esp32c3
+          - esp32s3
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build ${{ matrix.target }} bootloader
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v5.4
+          path: .
+          target: ${{ matrix.target }}
+          command: idf.py set-target ${{ matrix.target }} bootloader
+      - name: Upload ${{ matrix.target }} bootloader
+        uses: actions/upload-artifact@v4
+        with:
+          name: bootloader-${{ matrix.target }}
+          path: build/bootloader/bootloader.bin
+          if-no-files-found: error
