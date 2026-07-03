@@ -28,7 +28,7 @@ jobs:
           esp_idf_version: v5.4
           path: .
           target: ${{ matrix.target }}
-          command: idf.py set-target ${{ matrix.target }} bootloader
+          command: idf.py set-target ${{ matrix.target }} bootloader_nodigest
       - name: Upload ${{ matrix.target }} bootloader
         uses: actions/upload-artifact@v7
         with:

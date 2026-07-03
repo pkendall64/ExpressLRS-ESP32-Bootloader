@@ -1,5 +1,5 @@
 idf_component_register(SRCS "bootloader_start.c" "bootloader_hooks.c"
-                    REQUIRES bootloader bootloader_support hal)
+                    REQUIRES bootloader bootloader_support hal esptool_py)
 
 idf_build_get_property(target IDF_TARGET)
 set(scripts "ld/${target}/bootloader.ld")

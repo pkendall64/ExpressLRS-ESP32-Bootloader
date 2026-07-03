@@ -33,10 +33,12 @@ This is the shortest path.
 
    ```bash
    idf.py set-target esp32
-   idf.py bootloader
+   idf.py bootloader_nodigest
    ```
 
    Replace `esp32` with `esp32c3` or `esp32s3` as needed.
+
+   This target rebuilds `build/bootloader/bootloader.bin` with `elf2image --dont-append-digest`.
 
 Useful output files:
 
@@ -49,9 +51,9 @@ Useful output files:
 2. Go to **Settings > Build, Execution, Deployment > Toolchain**.
 3. Add the ESP-IDF environment from your `export.sh` file.
 4. Reload the project. If needed, run **Tools > CMake > Reset Cache and Reload Project**.
-5. Build the `bootloader` target from CLion.
+5. Build the `bootloader_nodigest` target from CLion.
 
-The bootloader artifact is written to `build/bootloader/bootloader.bin`.
+The bootloader artifact is written to `build/bootloader/bootloader.bin` without the appended image digest.
 
 ## Command-line build
 
@@ -59,5 +61,5 @@ Outside CLion, the same build works from a shell with ESP-IDF exported:
 
 ```bash
 idf.py set-target esp32
-idf.py bootloader
+idf.py bootloader_nodigest
 ```
