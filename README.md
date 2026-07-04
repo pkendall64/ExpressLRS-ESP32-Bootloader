@@ -16,6 +16,18 @@ This project builds only `bootloader.bin` for the ExpressLRS ESP32 bootloader un
 
 ## Build locally in CLion
 
+### Option 0: use the Dev Container
+
+The repo includes `.devcontainer/devcontainer.json` based on `espressif/idf:v5.4`.
+
+In CLion:
+
+1. Open the project.
+2. Create/start the Dev Container from the `.devcontainer/devcontainer.json` file.
+3. Open a terminal inside the container, or build the `bootloader_nodigest` target directly from CLion.
+
+The container already provides the ESP-IDF toolchain and `IDF_PATH`.
+
 ### Option 1: use CLion's terminal
 
 This is the shortest path.

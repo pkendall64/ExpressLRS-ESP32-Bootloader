@@ -1,0 +1,13 @@
+{
+  "name": "ExpressLRS ESP32 Bootloader",
+  "image": "espressif/idf:v5.4",
+  "remoteUser": "root",
+  "updateRemoteUserUID": false,
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "jetbrains": {
+      "backend": "CLion"
+    }
+  },
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+}
